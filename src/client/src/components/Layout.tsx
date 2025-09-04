@@ -16,27 +16,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const cartItemCount = cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary text-white">
       {/* Header */}
-      <header className="bg-slate-800 text-white shadow-lg">
+      <header className="bg-primary text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-              <Zap className="h-6 w-6 text-amber-400" />
+              <Zap className="h-6 w-6 text-accent" />
               <span>EnergyStack</span>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <Link to="/products" className="hover:text-amber-400 transition-colors">
+              <Link to="/products" className="hover:text-accent transition-colors">
                 Products
               </Link>
-              <Link to="/cart" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
+              <Link to="/cart" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <ShoppingCart className="h-5 w-5" />
                 <span>Cart</span>
                 {cartItemCount > 0 && (
-                  <span className="bg-amber-400 text-slate-800 text-xs font-bold px-2 py-1 rounded-full">
+                  <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded-full">
                     {cartItemCount}
                   </span>
                 )}
@@ -49,30 +49,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileMenuOpen ? <X className="h-6 w-6 text-accent" /> : <Menu className="h-6 w-6 text-accent" />}
             </button>
           </div>
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <nav className="md:hidden py-4 border-t border-slate-700">
+            <nav className="md:hidden py-4 border-t border-secondary">
               <div className="flex flex-col gap-4">
                 <Link
                   to="/products"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-accent transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Products
                 </Link>
                 <Link
                   to="/cart"
-                  className="flex items-center gap-2 hover:text-amber-400 transition-colors"
+                  className="flex items-center gap-2 hover:text-accent transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <ShoppingCart className="h-5 w-5" />
                   <span>Cart</span>
                   {cartItemCount > 0 && (
-                    <span className="bg-amber-400 text-slate-800 text-xs font-bold px-2 py-1 rounded-full">
+                    <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded-full">
                       {cartItemCount}
                     </span>
                   )}
@@ -87,21 +87,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-white py-8">
+      <footer className="bg-primary text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 text-xl font-bold mb-4">
-                <Zap className="h-6 w-6 text-amber-400" />
+                <Zap className="h-6 w-6 text-accent" />
                 <span>EnergyStack</span>
               </div>
-              <p className="text-gray-300">
+              <p className="text-secondary">
                 Premium solar equipment and financing solutions for your renewable energy needs.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Products</h3>
-              <ul className="space-y-2 text-gray-300">
+              <h3 className="font-semibold mb-4 text-white">Products</h3>
+              <ul className="space-y-2 text-secondary">
                 <li>Solar Panels</li>
                 <li>Inverters</li>
                 <li>Batteries</li>
@@ -109,8 +109,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-300">
+              <h3 className="font-semibold mb-4 text-white">Support</h3>
+              <ul className="space-y-2 text-secondary">
                 <li>Installation Guide</li>
                 <li>Warranty</li>
                 <li>Contact Us</li>
@@ -118,8 +118,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-slate-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 EnergyStack. All rights reserved.</p>
+          <div className="border-t border-secondary mt-8 pt-8 text-center text-secondary">
+            <p>&copy; 2025 EnergyStack. All rights reserved.</p>
           </div>
         </div>
       </footer>

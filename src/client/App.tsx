@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom"
-import { CartProvider } from "./contexts/CartContext"
-import Layout from "./components/Layout"
-import ProductCatalog from "./pages/ProductCatalog"
-import ProductDetail from "./pages/ProductDetail"
-import Cart from "./pages/Cart"
-import Checkout from "./pages/Checkout"
-import OrderConfirmation from "./pages/OrderConfirmation"
-import NotFound from "./pages/NotFound"
+import { CartProvider } from "../client/src/contexts/CartContext"
+import Layout from "../client/src/components/Layout"
+import ProductCatalog from "../client/src/pages/ProductCatalog"
+import ProductDetail from "../client/src/pages/ProductDetail"
+import Cart from "../client/src/pages/Cart"
+import Checkout from "../client/src/pages/Checkout"
+import OrderConfirmation from "../client/src/pages/OrderConfirmation"
+import NotFound from "../client/src/pages/NotFound"
 
 function App() {
   return (
