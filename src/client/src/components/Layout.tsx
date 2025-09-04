@@ -16,9 +16,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const cartItemCount = cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0
 
   return (
-    <div className="min-h-screen bg-primary text-white">
+    <div className="min-h-screen text-black">
       {/* Header */}
-      <header className="bg-primary text-white shadow-lg">
+      <header className=" text-black shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -87,7 +87,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-8">
+      <footer className=" text-black py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -95,13 +95,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Zap className="h-6 w-6 text-accent" />
                 <span>EnergyStack</span>
               </div>
-              <p className="text-secondary">
+              <p className="">
                 Premium solar equipment and financing solutions for your renewable energy needs.
               </p>
             </div>
             <div>
               <h3 className="font-semibold mb-4 text-white">Products</h3>
-              <ul className="space-y-2 text-secondary">
+              <ul className="space-y-2 ">
                 <li>Solar Panels</li>
                 <li>Inverters</li>
                 <li>Batteries</li>
@@ -110,7 +110,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
             <div>
               <h3 className="font-semibold mb-4 text-white">Support</h3>
-              <ul className="space-y-2 text-secondary">
+              <ul className="space-y-2 ">
                 <li>Installation Guide</li>
                 <li>Warranty</li>
                 <li>Contact Us</li>
@@ -118,7 +118,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-secondary mt-8 pt-8 text-center text-secondary">
+          <div className="border-t border-secondary mt-8 pt-8 text-center ">
             <p>&copy; 2025 EnergyStack. All rights reserved.</p>
           </div>
         </div>

@@ -35,11 +35,11 @@ const OrderConfirmation: React.FC = () => {
   }, [orderId])
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price)
-  }
+  return new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price)
+}
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -159,7 +159,7 @@ const OrderConfirmation: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           to="/products"
-          className="flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
         >
           Continue Shopping
           <ArrowRight className="h-4 w-4" />

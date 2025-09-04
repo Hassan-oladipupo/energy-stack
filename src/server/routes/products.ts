@@ -8,25 +8,24 @@ import { logger } from "../utils/logger"
 const router = Router()
 
 // GET /api/products - List products with pagination and filtering
-router.get("/", validateProductQuery, async (
-    req: Request<{ sessionId: string }>,
-    res: Response,
-    next: NextFunction
-  )  => {
+router.get("/", validateProductQuery, async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const page = Number.parseInt(req.query.page as string) || 1
-    const limit = Number.parseInt(req.query.limit as string) || 12
-    const search = req.query.search as string
-    const category = req.query.category as string
-    const minPrice = Number.parseFloat(req.query.minPrice as string)
-    const maxPrice = Number.parseFloat(req.query.maxPrice as string)
+    const page = Number(req.query.page) || 1
+    const limit = Number(req.query.limit) || 12
+    const search = (req.query.search as string)?.trim() || undefined
+    const category = (req.query.category as string)?.trim() || undefined
+    const minPrice = parseFloat(req.query.minPrice as string)
+    const maxPrice = parseFloat(req.query.maxPrice as string)
 
     const offset = (page - 1) * limit
     const where: any = {}
 
     // Search filter
     if (search) {
-      where[Op.or] = [{ name: { [Op.iLike]: `%${search}%` } }, { description: { [Op.iLike]: `%${search}%` } }]
+      where[Op.or] = [
+        { name: { [Op.iLike]: `%${search}%` } },
+        { description: { [Op.iLike]: `%${search}%` } },
+      ]
     }
 
     // Category filter
@@ -72,7 +71,6 @@ router.get("/", validateProductQuery, async (
   }
 })
 
-// GET /api/products/:id - Get single product
 router.get("/:id", validateProductId, async (
     req: Request<{ id: string; sessionId: string }>,
     res: Response,

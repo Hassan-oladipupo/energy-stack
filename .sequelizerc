@@ -1,6 +1,0 @@
-{
-  "config": "./src/server/config/database.js",
-  "models-path": "./src/server/models",
-  "seeders-path": "./src/server/seeders",
-  "migrations-path": "./src/server/migrations"
-}

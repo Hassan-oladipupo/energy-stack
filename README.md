@@ -2,7 +2,7 @@
 
 A modern, full-stack e-commerce platform for solar equipment with integrated financing solutions. Built with React, Node.js, PostgreSQL, and TypeScript.
 
-## 🚀 Features
+##  Features
 
 ### Frontend
 - **Product Catalog**: Browse solar panels, inverters, batteries, and accessories
@@ -20,7 +20,7 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
 - **Rate Limiting**: Protection against abuse with configurable limits
 - **CORS Support**: Secure cross-origin resource sharing
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS, React Router
 - **Backend**: Node.js, Express, TypeScript
@@ -28,20 +28,20 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
 - **Development**: Vite, Docker Compose, Jest
 - **Deployment**: Docker, Vercel-ready configuration
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+ 
 - Docker and Docker Compose
 - PostgreSQL (if running locally without Docker)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Using Docker Compose (Recommended)
 
 1. **Clone the repository**
    \`\`\`bash
    git clone <repository-url>
-   cd energystack-storefront
+   cd energy-stack
    \`\`\`
 
 2. **Environment Setup**
@@ -87,7 +87,7 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
    npm run client:dev  # Frontend only
    \`\`\`
 
-## 🗄 Database Schema
+##  Database Schema
 
 ### Products
 - `id` (Primary Key)
@@ -123,7 +123,7 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
 - `quantity` (Integer)
 - `price` (Decimal, snapshot of product price)
 
-## 🔌 API Endpoints
+##🔌 API Endpoints
 
 ### Products
 - `GET /api/products` - List products with pagination and filtering
@@ -143,7 +143,7 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
 - `GET /api/docs` - OpenAPI documentation
 - `GET /health` - Health check endpoint
 
-## 🧪 Testing
+##  Testing
 
 ### Run Tests
 \`\`\`bash
@@ -162,7 +162,7 @@ npm test -- --coverage
 - **Integration Tests**: API endpoints and database operations
 - **Component Tests**: React component functionality
 
-## 🌍 Environment Variables
+##  Environment Variables
 
 Create a `.env` file based on `.env.example`:
 
@@ -183,7 +183,7 @@ TAX_RATE=0.08
 CORS_ORIGINS=http://localhost:3000,http://localhost:3001
 \`\`\`
 
-## 📦 Deployment
+##  Deployment
 
 ### Docker Production Build
 \`\`\`bash
@@ -201,7 +201,7 @@ The project is configured for Vercel deployment:
 2. Set environment variables in Vercel dashboard
 3. Deploy automatically on push to main branch
 
-## 🏗 Project Structure
+##  Project Structure
 
 \`\`\`
 src/
@@ -212,8 +212,8 @@ src/
 │   │   ├── pages/          # Route components
 │   │   ├── services/       # API client services
 │   │   ├── types/          # TypeScript type definitions
-│   │   └── main.tsx        # Application entry point
 │   └── index.html
+      └── maintsx
 ├── server/                 # Node.js backend
 │   ├── models/             # Sequelize database models
 │   ├── routes/             # Express route handlers
@@ -224,7 +224,7 @@ src/
 └── shared/                 # Shared types and utilities
 \`\`\`
 
-## 🔧 Development Scripts
+##  Development Scripts
 
 \`\`\`bash
 npm run dev              # Start both frontend and backend
@@ -235,7 +235,7 @@ npm run db:migrate       # Run database migrations
 npm run db:seed          # Seed database with sample data
 \`\`\`
 
-## 🚨 Known Trade-offs & Future Improvements
+## Known Trade-offs & Future Improvements
 
 ### Current Limitations
 1. **Session Management**: Uses localStorage for session persistence (not suitable for production)
@@ -274,11 +274,11 @@ npm run db:seed          # Seed database with sample data
    - User analytics (Google Analytics)
    - Business metrics dashboard
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -286,7 +286,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📞 Support
+##  Support
 
 For support and questions:
 - Create an issue in the GitHub repository

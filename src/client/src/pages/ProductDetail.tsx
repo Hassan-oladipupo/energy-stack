@@ -54,11 +54,11 @@ const ProductDetail: React.FC = () => {
   }
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price)
-  }
+  return new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price)
+}
 
   const getCategoryLabel = (category: string) => {
     const labels: Record<string, string> = {
@@ -188,7 +188,7 @@ const ProductDetail: React.FC = () => {
               <button
                 onClick={handleAddToCart}
                 disabled={isAdding || cartLoading}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <ShoppingCart className="h-5 w-5" />
                 {isAdding ? "Adding to Cart..." : "Add to Cart"}

@@ -40,19 +40,23 @@ const ProductCatalog: React.FC = () => {
     totalPages: 0,
   })
 
-  const fetchProducts = async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      const response = await productApi.getProducts(filters)
-      setProducts(response.data)
-      setPagination(response.pagination)
-    } catch (err: any) {
-      setError(err.response?.data?.error || "Failed to load products")
-    } finally {
-      setLoading(false)
-    }
+const fetchProducts = async () => {
+  try {
+    setLoading(true)
+    setError(null)
+
+    const responseData = await productApi.getProducts(filters) // ProductResponse
+    setProducts(responseData.data)
+    setPagination(responseData.pagination)
+  } catch (err: any) {
+    setError(err.response?.data?.errors?.[0]?.msg || "Failed to load products")
+  } finally {
+    setLoading(false)
   }
+}
+
+
+
 
   useEffect(() => {
     fetchProducts()
@@ -117,7 +121,7 @@ const ProductCatalog: React.FC = () => {
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white px-4 py-1.5 rounded-md hover:bg-purple-700 transition-colors"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-md hover:bg-purple-700 transition-colors"
             >
               Search
             </button>
@@ -148,14 +152,14 @@ const ProductCatalog: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setViewMode("grid")}
-                className={`p-2 rounded ${viewMode === "grid" ? "bg-purple-100 text-purple-600" : "text-gray-400 hover:text-gray-600"}`}
+                className={`p-2 rounded ${viewMode === "grid" ? "bg-purple-100 text-primary" : "text-gray-400 hover:text-gray-600"}`}
                 aria-label="Grid view"
               >
                 <Grid className="h-4 w-4" />
               </button>
               <button
                 onClick={() => setViewMode("list")}
-                className={`p-2 rounded ${viewMode === "list" ? "bg-purple-100 text-purple-600" : "text-gray-400 hover:text-gray-600"}`}
+                className={`p-2 rounded ${viewMode === "list" ? "bg-purple-100 text-primary" : "text-gray-400 hover:text-gray-600"}`}
                 aria-label="List view"
               >
                 <List className="h-4 w-4" />
@@ -251,7 +255,7 @@ const ProductCatalog: React.FC = () => {
           {products.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">No products found matching your criteria.</p>
-              <button onClick={clearFilters} className="mt-4 text-purple-600 hover:text-purple-700 font-medium">
+              <button onClick={clearFilters} className="mt-4 text-primary hover:text-purple-700 font-medium">
                 Clear filters to see all products
               </button>
             </div>

@@ -29,11 +29,11 @@ const Checkout: React.FC = () => {
   })
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price)
-  }
+  return new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price)
+}
 
   const calculateSubtotal = () => {
     if (!cart?.items) return 0
@@ -88,7 +88,7 @@ const Checkout: React.FC = () => {
           <p className="text-gray-600 mb-6">Add some items to your cart before checking out.</p>
           <button
             onClick={() => navigate("/products")}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Continue Shopping
@@ -204,20 +204,53 @@ const Checkout: React.FC = () => {
                     State
                   </label>
                   <select
-                    id="state"
-                    name="state"
-                    required
-                    value={formData.state}
-                    onChange={handleInputChange}
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  >
-                    <option value="">Select State</option>
-                    <option value="CA">California</option>
-                    <option value="NY">New York</option>
-                    <option value="TX">Texas</option>
-                    <option value="FL">Florida</option>
-                    {/* Add more states as needed */}
-                  </select>
+  id="state"
+  name="state"
+  required
+  value={formData.state}
+  onChange={handleInputChange}
+  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+>
+  <option value="">Select State</option>
+  <option value="AB">Abia</option>
+  <option value="AD">Adamawa</option>
+  <option value="AK">Akwa Ibom</option>
+  <option value="AN">Anambra</option>
+  <option value="BA">Bauchi</option>
+  <option value="BY">Bayelsa</option>
+  <option value="BE">Benue</option>
+  <option value="BO">Borno</option>
+  <option value="CR">Cross River</option>
+  <option value="DE">Delta</option>
+  <option value="EB">Ebonyi</option>
+  <option value="ED">Edo</option>
+  <option value="EK">Ekiti</option>
+  <option value="EN">Enugu</option>
+  <option value="GO">Gombe</option>
+  <option value="IM">Imo</option>
+  <option value="JI">Jigawa</option>
+  <option value="KD">Kaduna</option>
+  <option value="KN">Kano</option>
+  <option value="KT">Katsina</option>
+  <option value="KE">Kebbi</option>
+  <option value="KO">Kogi</option>
+  <option value="KW">Kwara</option>
+  <option value="LA">Lagos</option>
+  <option value="NA">Nasarawa</option>
+  <option value="NI">Niger</option>
+  <option value="OG">Ogun</option>
+  <option value="ON">Ondo</option>
+  <option value="OS">Osun</option>
+  <option value="OY">Oyo</option>
+  <option value="PL">Plateau</option>
+  <option value="RI">Rivers</option>
+  <option value="SO">Sokoto</option>
+  <option value="TA">Taraba</option>
+  <option value="YO">Yobe</option>
+  <option value="ZA">Zamfara</option>
+  <option value="FC">Federal Capital Territory</option>
+</select>
+
                 </div>
                 <div>
                   <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
@@ -314,7 +347,7 @@ const Checkout: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {loading ? (
                 <>

@@ -15,17 +15,33 @@ export const handleValidationErrors = (req: Request, res: Response, next: NextFu
 }
 
 export const validateProductQuery = [
-  query("page").optional().isInt({ min: 1 }).withMessage("Page must be a positive integer"),
-  query("limit").optional().isInt({ min: 1, max: 100 }).withMessage("Limit must be between 1 and 100"),
-  query("search").optional().isLength({ min: 1, max: 100 }).withMessage("Search must be 1-100 characters"),
-  query("category")
+  query("page")
     .optional()
+    .isInt({ min: 1 })
+    .withMessage("Page must be a positive integer"),
+  query("limit")
+    .optional()
+    .isInt({ min: 1, max: 100 })
+    .withMessage("Limit must be between 1 and 100"),
+  query("search")
+    .optional({ nullable: true, checkFalsy: true }) // allow empty string
+    .isLength({ min: 1, max: 100 })
+    .withMessage("Search must be 1-100 characters"),
+  query("category")
+    .optional({ nullable: true, checkFalsy: true }) // allow empty string
     .isIn(["solar-panels", "inverters", "batteries", "accessories"])
     .withMessage("Invalid category"),
-  query("minPrice").optional().isFloat({ min: 0 }).withMessage("Min price must be non-negative"),
-  query("maxPrice").optional().isFloat({ min: 0 }).withMessage("Max price must be non-negative"),
+  query("minPrice")
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage("Min price must be non-negative"),
+  query("maxPrice")
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage("Max price must be non-negative"),
   handleValidationErrors,
-]
+];
+
 
 export const validateProductId = [
   param("id").isInt({ min: 1 }).withMessage("Product ID must be a positive integer"),

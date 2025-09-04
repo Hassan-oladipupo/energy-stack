@@ -10,6 +10,17 @@ export interface Product {
   updatedAt: string
 }
 
+export interface ProductResponse {
+  success: boolean
+  data: Product[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+  }
+}
+
 export interface CartItem {
   id: number
   cartId: number

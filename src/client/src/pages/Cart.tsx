@@ -11,11 +11,11 @@ const Cart: React.FC = () => {
   const { cart, loading, error, updateCartItem, removeFromCart, clearError } = useCart()
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price)
-  }
+  return new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price)
+}
 
   const calculateSubtotal = () => {
     if (!cart?.items) return 0
@@ -67,7 +67,7 @@ const Cart: React.FC = () => {
           <p className="text-gray-600 mb-6">Looks like you haven't added any items to your cart yet.</p>
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
           >
             Continue Shopping
             <ArrowRight className="h-4 w-4" />
@@ -165,7 +165,7 @@ const Cart: React.FC = () => {
 
               <Link
                 to="/checkout"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
               >
                 Proceed to Checkout
                 <ArrowRight className="h-4 w-4" />
