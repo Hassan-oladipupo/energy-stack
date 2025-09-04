@@ -165,7 +165,7 @@ const Cart: React.FC = () => {
 
               <Link
                 to="/checkout"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-accent-700 transition-colors"
               >
                 Proceed to Checkout
                 <ArrowRight className="h-4 w-4" />
@@ -190,11 +190,12 @@ const Cart: React.FC = () => {
 
       {/* Loading overlay */}
       {loading && cart?.items && cart.items.length > 0 && (
-        <div className="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <LoadingSpinner />
-          </div>
-        </div>
+       <div className="fixed inset-0 bg-gray-100 bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white p-4 rounded-lg shadow-lg">
+    <LoadingSpinner />
+  </div>
+</div>
+
       )}
     </div>
   )

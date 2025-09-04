@@ -50,54 +50,56 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode }) => {
   if (viewMode === "list") {
     return (
       <Link to={`/products/${product.id}`} className="block">
-        <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-48 flex-shrink-0">
-              <img
-                src={product.images[0] || "/placeholder.svg?height=200&width=200"}
-                alt={product.name}
-                className="w-full h-48 object-cover rounded-lg"
-              />
-            </div>
+     <div className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-shadow w-full">
+  <div className="flex flex-col md:flex-row gap-4 w-full">
+    <div className="md:w-40 flex-shrink-0">
+      <img
+        src={product.images[0] || "/placeholder.svg?height=200&width=200"}
+        alt={product.name}
+        className="w-full h-40 object-cover rounded-lg"
+      />
+    </div>
 
-            <div className="flex-1">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <span className="inline-block px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full mb-2">
-                    {getCategoryLabel(product.category)}
-                  </span>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-gray-900">{formatPrice(product.price)}</p>
-                  <p className="text-sm text-gray-500">
-                    {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
-                  </p>
-                </div>
-              </div>
+    <div className="flex-1">
+      <div className="flex items-start justify-between mb-1">
+        <div>
+         <span className="inline-block px-2 py-0.5 text-xs font-medium bg-primary text-white rounded-full mb-1">
+  {getCategoryLabel(product.category)}
+</span>
 
-              <p className="text-gray-600 mb-4 line-clamp-3">{product.description}</p>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                  <span className="text-sm text-gray-500 ml-2">(4.8)</span>
-                </div>
-
-                <button
-                  onClick={handleAddToCart}
-                  disabled={product.stock === 0 || isAdding || loading}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                  <ShoppingCart className="h-4 w-4" />
-                  {isAdding ? "Adding..." : "Add to Cart"}
-                </button>
-              </div>
-            </div>
-          </div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-1">{product.name}</h3>
         </div>
+        <div className="text-right">
+          <p className="text-xl font-bold text-gray-900">{formatPrice(product.price)}</p>
+          <p className="text-xs text-gray-500">
+            {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-600 mb-3 line-clamp-3 text-sm">{product.description}</p>
+
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="h-3 w-3 fill-amber-400 text-amber-400" />
+          ))}
+          <span className="text-xs text-gray-500 ml-1">(4.8)</span>
+        </div>
+
+        <button
+          onClick={handleAddToCart}
+          disabled={product.stock === 0 || isAdding || loading}
+          className="flex items-center gap-1 px-3 py-1.5 bg-primary text-white rounded-md hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
+        >
+          <ShoppingCart className="h-3 w-3" />
+          {isAdding ? "Adding..." : "Add"}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
       </Link>
     )
   }
@@ -114,9 +116,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode }) => {
         </div>
 
         <div className="p-4">
-          <span className="inline-block px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full mb-2">
-            {getCategoryLabel(product.category)}
-          </span>
+          <span className="inline-block px-2 py-1 text-xs font-medium bg-primary text-white rounded-full mb-2">
+       {getCategoryLabel(product.category)}
+      </span>
+
 
           <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">{product.name}</h3>
 
@@ -135,14 +138,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode }) => {
           <div className="flex items-center justify-between">
             <p className="text-lg font-bold text-gray-900">{formatPrice(product.price)}</p>
 
-            <button
-              onClick={handleAddToCart}
-              disabled={product.stock === 0 || isAdding || loading}
-              className="flex items-center gap-1 px-3 py-1.5 bg-primary text-white text-sm rounded-md hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            >
-              <ShoppingCart className="h-3 w-3" />
-              {isAdding ? "Adding..." : "Add"}
-            </button>
+       <button
+  onClick={handleAddToCart}
+  disabled={product.stock === 0 || isAdding || loading}
+  className="flex items-center gap-1 px-3 py-1.5 bg-primary text-white text-sm rounded-md hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+>
+  <ShoppingCart className="h-3 w-3" />
+  {isAdding ? "Adding..." : "Add"}
+</button>
+
+
           </div>
         </div>
       </div>

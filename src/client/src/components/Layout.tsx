@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <ShoppingCart className="h-5 w-5" />
                 <span>Cart</span>
                 {cartItemCount > 0 && (
-                  <span className="bg-accent text-primary text-xs font-bold px-2 py-1 rounded-full">
+                  <span className="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">
                     {cartItemCount}
                   </span>
                 )}
@@ -84,45 +84,54 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 w-full">{children}</main>
 
-      {/* Footer */}
-      <footer className=" text-black py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center gap-2 text-xl font-bold mb-4">
-                <Zap className="h-6 w-6 text-accent" />
-                <span>EnergyStack</span>
-              </div>
-              <p className="">
-                Premium solar equipment and financing solutions for your renewable energy needs.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4 text-white">Products</h3>
-              <ul className="space-y-2 ">
-                <li>Solar Panels</li>
-                <li>Inverters</li>
-                <li>Batteries</li>
-                <li>Accessories</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4 text-white">Support</h3>
-              <ul className="space-y-2 ">
-                <li>Installation Guide</li>
-                <li>Warranty</li>
-                <li>Contact Us</li>
-                <li>FAQ</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-secondary mt-8 pt-8 text-center ">
-            <p>&copy; 2025 EnergyStack. All rights reserved.</p>
-          </div>
+    <footer className="bg-gray-900 text-white py-8">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+      
+      {/* Logo & Description */}
+      <div className="md:w-1/3">
+        <div className="flex items-center gap-2 text-2xl font-bold mb-4 text-accent">
+          <Zap className="h-6 w-6" />
+          <span>EnergyStack</span>
         </div>
-      </footer>
+        <p className="text-gray-300">
+          Premium solar equipment and financing solutions for your renewable energy needs.
+        </p>
+      </div>
+
+      {/* Products */}
+      <div className="md:w-1/3">
+        <h3 className="font-semibold mb-4 text-white">Products</h3>
+        <ul className="space-y-2 text-gray-300">
+          <li>Solar Panels</li>
+          <li>Inverters</li>
+          <li>Batteries</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+
+      {/* Support */}
+      <div className="md:w-1/3">
+        <h3 className="font-semibold mb-4 text-white">Support</h3>
+        <ul className="space-y-2 text-gray-300">
+          <li>Installation Guide</li>
+          <li>Warranty</li>
+          <li>Contact Us</li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+
+    </div>
+
+    {/* Divider & Copyright */}
+    <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400">
+      <p>&copy; 2025 EnergyStack. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
     </div>
   )
 }

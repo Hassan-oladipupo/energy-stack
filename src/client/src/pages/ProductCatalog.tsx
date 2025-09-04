@@ -274,42 +274,45 @@ const fetchProducts = async () => {
           {/* Pagination */}
           {pagination.totalPages > 1 && (
             <div className="flex items-center justify-center gap-2 mt-12">
-              <button
-                onClick={() => handleFilterChange("page", pagination.page - 1)}
-                disabled={pagination.page === 1}
-                className="flex items-center gap-1 px-3 py-2 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
-              >
-                <ChevronLeft className="h-4 w-4" />
-                Previous
-              </button>
+            <button
+       onClick={() => handleFilterChange("page", pagination.page - 1)}
+        disabled={pagination.page === 1}
+       className="flex items-center gap-1 px-3 py-2 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 cursor-pointer"
+     >
+  <ChevronLeft className="h-4 w-4" />
+  Previous
+</button>
+
 
               <div className="flex items-center gap-1">
                 {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
                   const page = i + 1
                   return (
-                    <button
-                      key={page}
-                      onClick={() => handleFilterChange("page", page)}
-                      className={`px-3 py-2 rounded-md ${
-                        pagination.page === page
-                          ? "bg-purple-600 text-white"
-                          : "border border-gray-300 hover:bg-gray-50"
-                      }`}
-                    >
-                      {page}
-                    </button>
+                   <button
+                 key={page}
+            onClick={() => handleFilterChange("page", page)}
+          className={`px-3 py-2 rounded-md cursor-pointer ${
+        pagination.page === page
+        ? "bg-accent text-white"      
+         : "border border-gray-300 hover:bg-gray-50 text-gray-700" 
+  }`}
+>
+  {page}
+</button>
+
                   )
                 })}
               </div>
 
-              <button
-                onClick={() => handleFilterChange("page", pagination.page + 1)}
-                disabled={pagination.page === pagination.totalPages}
-                className="flex items-center gap-1 px-3 py-2 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
-              >
-                Next
-                <ChevronRight className="h-4 w-4" />
-              </button>
+             <button
+     onClick={() => handleFilterChange("page", pagination.page + 1)}
+      disabled={pagination.page === pagination.totalPages}
+       className="flex items-center gap-1 px-3 py-2 border border-gray-300 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 cursor-pointer"
+      >
+     Next
+  <ChevronRight className="h-4 w-4" />
+</button>
+
             </div>
           )}
         </>
@@ -317,11 +320,12 @@ const fetchProducts = async () => {
 
       {/* Loading overlay for filter changes */}
       {loading && products.length > 0 && (
-        <div className="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <LoadingSpinner />
-          </div>
-        </div>
+       <div className="fixed inset-0 bg-gray-100 bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white p-4 rounded-lg shadow-lg">
+    <LoadingSpinner />
+  </div>
+</div>
+
       )}
     </div>
   )
