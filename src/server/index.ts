@@ -9,6 +9,9 @@ import { requestLogger } from "./middleware/requestLogger"
 import productRoutes from "./routes/products"
 import cartRoutes from "./routes/cart"
 import orderRoutes from "./routes/orders"
+import cron from 'node-cron';
+import axios from 'axios';
+
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -17,15 +20,30 @@ const PORT = process.env.PORT || 3001
 app.use(helmet())
 app.use(
   cors({
-    origin: process.env.CORS_ORIGINS?.split(",") || ["http://localhost:3000"],
+    origin: process.env.CORS_ORIGINS?.split(",") || ["http://localhost:5173"],
     credentials: true,
   }),
 )
 
+// cron job
+const BASE_URL = process.env.APP_BASE_URL || "https://energy-stack-api.onrender.com";
+cron.schedule("*/10 * * * *", async () => {
+  console.log("Running scheduled task to query the base server URL...");
+  try {
+    const response = await axios.get(BASE_URL);
+    console.log("Server Response:", response.status, response.data);
+  } catch (error: any) {
+    console.error("Error querying the server:", error.message);
+  }
+});
+
+console.log("Cron job scheduled to run every 10 minutes.");
+
+
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
   message: "Too many requests from this IP, please try again later.",
 })
 app.use("/api", limiter)

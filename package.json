@@ -19,7 +19,7 @@
     "db:migrate": "npx sequelize-cli db:migrate --config src/server/config/database.js --migrations-path src/server/migrations --models-path src/server/models --seeders-path src/server/seeders",
     "db:seed": "npx sequelize-cli db:seed:all --config src/server/config/database.js --seeders-path src/server/seeders --models-path src/server/models",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npm run db:migrate && npm run db:seed",
-  "preview": "cd src/client && vite preview"
+    "preview": "cd src/client && vite preview"
   },
   "keywords": [
     "solar",
@@ -41,6 +41,7 @@
     "express-validator": "^7.0.1",
     "helmet": "^7.1.0",
     "lucide-react": "^0.542.0",
+    "node-cron": "^4.2.1",
     "pg": "^8.11.3",
     "react-router-dom": "^7.8.2",
     "sequelize": "^6.35.0",
