@@ -25,18 +25,16 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
 - **Frontend**: React 18, TypeScript, Tailwind CSS, React Router
 - **Backend**: Node.js, Express, TypeScript
 - **Database**: PostgreSQL with Sequelize ORM
-- **Development**: Vite, Docker Compose, Jest
-- **Deployment**: Docker, Vercel-ready configuration
+- **Frontend Development**: Vite, Jest,  Vercel-ready configuration
+- **Backend Deployment**: Render
 
 ## Prerequisites
 
 - Node.js 18+ 
-- Docker and Docker Compose
 - PostgreSQL (if running locally without Docker)
 
 ##  Quick Start
 
-### Using Docker Compose (Recommended)
 
 1. **Clone the repository**
    \`\`\`bash
@@ -50,9 +48,9 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
    # Edit .env with your configuration
    \`\`\`
 
-3. **Start with Docker Compose**
+3. **Build  App**
    \`\`\`bash
-   docker-compose up --build
+    npm run build
    \`\`\`
 
 4. **Access the application**
@@ -68,9 +66,10 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
    \`\`\`
 
 2. **Database Setup**
-   \`\`\`bash
-   # Start PostgreSQL (using Docker)
-   docker run --name energystack-db -e POSTGRES_PASSWORD=password -e POSTGRES_DB=energystack -p 5432:5432 -d postgres:15
+Set up your Postgres database (locally or using a hosted provider like Supabase, Neon, or Render).
+Once created, copy the connection string and add it to your environment variables file (.env) as:
+DATABASE_URL=postgresql://username:password@host:port/database
+Make sure to replace username, password, host, port, and database with your actual database credentials.
    
    # Run migrations and seed data
    npm run db:migrate
@@ -123,7 +122,7 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
 - `quantity` (Integer)
 - `price` (Decimal, snapshot of product price)
 
-##🔌 API Endpoints
+## API Endpoints
 
 ### Products
 - `GET /api/products` - List products with pagination and filtering
@@ -171,30 +170,26 @@ NODE_ENV=development
 PORT=3001
 
 # Database
-DATABASE_URL=postgresql://postgres:password@localhost:5432/energystack
+DATABASE_URL=
 
 # Redis (for rate limiting)
-REDIS_URL=redis://localhost:6379
+REDIS_URL=
 
 # Tax rate (as decimal, e.g., 0.08 for 8%)
 TAX_RATE=0.08
 
 # CORS origins (comma-separated)
-CORS_ORIGINS=http://localhost:3000,http://localhost:3001
+CORS_ORIGINS=http://localhost:5173,https://energy-stack.vercel.app/
 \`\`\`
 
 ##  Deployment
 
-### Docker Production Build
-\`\`\`bash
-# Build production image
-docker build -t energystack-storefront .
+### Render server Deployment
+1. Connect your GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
 
-# Run production container
-docker run -p 3001:3001 --env-file .env energystack-storefront
-\`\`\`
-
-### Vercel Deployment
+### Vercel Client Deployment
 The project is configured for Vercel deployment:
 
 1. Connect your GitHub repository to Vercel
@@ -274,26 +269,9 @@ npm run db:seed          # Seed database with sample data
    - User analytics (Google Analytics)
    - Business metrics dashboard
 
-##  License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-##  Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-##  Support
-
-For support and questions:
-- Create an issue in the GitHub repository
-- Contact the development team
 
 ---
-
-**Live Demo**: [Deployed URL will be here]
-**API Documentation**: [API Docs URL will be here]
-**Wireframes**: [Wireframe Link will be here]
+**Live Demo**: https://energy-stack.vercel.app/
+**API Url**:https://energy-stack-api.onrender.com
+**API Documentation**:https://energy-stack-api.onrender.com/api/docs
