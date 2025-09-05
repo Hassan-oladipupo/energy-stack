@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const cartItemCount = cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0
 
   return (
-    <div className="min-h-screen text-black">
+    <div className="flex flex-col min-h-screen text-black">
       {/* Header */}
       <header className="fixed top-0 left-0 w-full text-black shadow-lg z-50 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

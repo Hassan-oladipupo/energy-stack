@@ -78,6 +78,7 @@ const ProductDetail: React.FC = () => {
     )
   }
 
+  
   if (error || !product) {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -118,7 +119,7 @@ const ProductDetail: React.FC = () => {
                   key={index}
                   onClick={() => setSelectedImage(index)}
                   className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 ${
-                    selectedImage === index ? "border-purple-600" : "border-gray-200"
+                    selectedImage === index ? "border-accent-600" : "border-gray-200"
                   }`}
                 >
                   <img
@@ -135,7 +136,7 @@ const ProductDetail: React.FC = () => {
         {/* Product Info */}
         <div className="space-y-6">
           <div>
-            <span className="inline-block px-3 py-1 text-sm font-medium bg-purple-100 text-purple-800 rounded-full mb-3">
+            <span className="inline-block px-3 py-1 text-sm font-medium bg-green-100 text-accent-800 rounded-full mb-3">
               {getCategoryLabel(product.category)}
             </span>
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
@@ -175,7 +176,7 @@ const ProductDetail: React.FC = () => {
                   id="quantity"
                   value={quantity}
                   onChange={(e) => setQuantity(Number.parseInt(e.target.value))}
-                  className="border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                 >
                   {Array.from({ length: Math.min(10, product.stock) }, (_, i) => i + 1).map((num) => (
                     <option key={num} value={num}>

@@ -42,8 +42,8 @@ console.log("Cron job scheduled to run every 10 minutes.");
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, 
-  max: 100, 
+  windowMs: 5 * 60 * 1000, 
+  max: 1000, 
   message: "Too many requests from this IP, please try again later.",
 })
 app.use("/api", limiter)

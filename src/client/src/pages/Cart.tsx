@@ -91,7 +91,7 @@ const Cart: React.FC = () => {
                   <div className="flex-1 min-w-0">
                     <Link
                       to={`/products/${item.product.id}`}
-                      className="text-lg font-semibold text-gray-900 hover:text-purple-600 transition-colors"
+                      className="text-lg font-semibold text-gray-900 hover:text-accent-600 transition-colors"
                     >
                       {item.product.name}
                     </Link>

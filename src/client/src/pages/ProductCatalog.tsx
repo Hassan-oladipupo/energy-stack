@@ -8,6 +8,7 @@ import { productApi } from "../services/api"
 import ProductCard from "../components/ProductCard"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorMessage from "../components/ErrorMessage"
+import toast from "react-hot-toast"
 
 const CATEGORIES = [
   { value: "", label: "All Categories" },
@@ -45,11 +46,13 @@ const fetchProducts = async () => {
     setLoading(true)
     setError(null)
 
-    const responseData = await productApi.getProducts(filters) // ProductResponse
+    const responseData = await productApi.getProducts(filters) 
     setProducts(responseData.data)
     setPagination(responseData.pagination)
   } catch (err: any) {
-    setError(err.response?.data?.errors?.[0]?.msg || "Failed to load products")
+     const message = err.response?.data?.errors?.[0]?.msg || "Failed to load products"
+      setError(message)
+      toast.error(`${message}`)
   } finally {
     setLoading(false)
   }
@@ -66,7 +69,7 @@ const fetchProducts = async () => {
     setFilters((prev) => ({
       ...prev,
       [key]: value,
-      page: key !== "page" ? 1 : value, // Reset to page 1 when changing filters
+      page: key !== "page" ? 1 : value, 
     }))
   }
 
@@ -115,13 +118,13 @@ const fetchProducts = async () => {
             <input
               type="text"
               name="search"
-              placeholder="Search products..."
+              placeholder="Search products and categories"
               defaultValue={filters.search}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-md hover:bg-accent-700 transition-colors cursor-pointer"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-md hover:bg-accent transition-colors cursor-pointer"
             >
               Search
             </button>
@@ -140,7 +143,7 @@ const fetchProducts = async () => {
             </button>
 
             {(filters.search || filters.category || filters.minPrice || filters.maxPrice) && (
-              <button onClick={clearFilters} className="text-purple-600 hover:text-purple-700 text-sm font-medium">
+              <button onClick={clearFilters} className="text-accent hover:text-accent text-b font-medium cursor-pointer">
                 Clear all filters
               </button>
             )}
@@ -152,14 +155,14 @@ const fetchProducts = async () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setViewMode("grid")}
-                className={`p-2 rounded ${viewMode === "grid" ? "bg-purple-100 text-primary" : "text-gray-400 hover:text-gray-600"}`}
+                className={`p-2 rounded ${viewMode === "grid" ? "bg-green-100 text-primary" : "text-gray-400 hover:text-gray-600"}`}
                 aria-label="Grid view"
               >
                 <Grid className="h-4 w-4" />
               </button>
               <button
                 onClick={() => setViewMode("list")}
-                className={`p-2 rounded ${viewMode === "list" ? "bg-purple-100 text-primary" : "text-gray-400 hover:text-gray-600"}`}
+                className={`p-2 rounded ${viewMode === "list" ? "bg-green-100 text-primary" : "text-gray-400 hover:text-gray-600"}`}
                 aria-label="List view"
               >
                 <List className="h-4 w-4" />
@@ -180,7 +183,7 @@ const fetchProducts = async () => {
                   id="category"
                   value={filters.category || ""}
                   onChange={(e) => handleFilterChange("category", e.target.value)}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-accent focus:border-transparent"
                 >
                   {CATEGORIES.map((category) => (
                     <option key={category.value} value={category.value}>
@@ -203,7 +206,7 @@ const fetchProducts = async () => {
                   onChange={(e) =>
                     handleFilterChange("minPrice", e.target.value ? Number.parseFloat(e.target.value) : undefined)
                   }
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="$0"
                 />
               </div>
@@ -221,7 +224,7 @@ const fetchProducts = async () => {
                   onChange={(e) =>
                     handleFilterChange("maxPrice", e.target.value ? Number.parseFloat(e.target.value) : undefined)
                   }
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="$10000"
                 />
               </div>
@@ -234,7 +237,7 @@ const fetchProducts = async () => {
                   id="limit"
                   value={filters.limit}
                   onChange={(e) => handleFilterChange("limit", Number.parseInt(e.target.value))}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-accent focus:border-transparent"
                 >
                   <option value={12}>12</option>
                   <option value={24}>24</option>
@@ -255,7 +258,7 @@ const fetchProducts = async () => {
           {products.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">No products found matching your criteria.</p>
-              <button onClick={clearFilters} className="mt-4 text-primary hover:text-purple-700 font-medium">
+              <button onClick={clearFilters} className="mt-4 text-primary hover:text-accent font-medium cursor-pointer">
                 Clear filters to see all products
               </button>
             </div>

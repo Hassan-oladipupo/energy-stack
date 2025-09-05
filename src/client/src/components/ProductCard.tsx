@@ -90,7 +90,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode }) => {
         <button
           onClick={handleAddToCart}
           disabled={product.stock === 0 || isAdding || loading}
-          className="flex items-center gap-1 px-3 py-1.5 bg-primary text-white rounded-md hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
+          className="flex items-center gap-1 px-3 py-1.5 bg-primary text-white rounded-md hover:bg-accent-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
         >
           <ShoppingCart className="h-3 w-3" />
           {isAdding ? "Adding..." : "Add"}

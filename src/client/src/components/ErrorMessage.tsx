@@ -21,7 +21,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry, className
         {onRetry && (
           <button
             onClick={onRetry}
-            className="flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 rounded-md hover:bg-red-200 transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 rounded-md hover:bg-red-200 transition-colors text-sm font-medium cursor-pointer"
           >
             <RefreshCw className="h-3 w-3" />
             Retry

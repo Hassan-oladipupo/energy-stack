@@ -92,7 +92,7 @@ const Checkout: React.FC = () => {
           <p className="text-gray-600 mb-6">Add some items to your cart before checking out.</p>
           <button
             onClick={() => navigate("/products")}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-accent-700 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Continue Shopping
