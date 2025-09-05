@@ -117,11 +117,11 @@ const fetchProducts = async () => {
               name="search"
               placeholder="Search products..."
               defaultValue={filters.search}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-md hover:bg-purple-700 transition-colors"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-md hover:bg-accent-700 transition-colors cursor-pointer"
             >
               Search
             </button>

@@ -1,14 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
 import tailwindcss from "@tailwindcss/vite";
-
+import path from "path";
 
 export default defineConfig({
-  root: "src/client",
   plugins: [react(), tailwindcss()],
   build: {
-    outDir: "../../dist/client",
+    outDir: "dist",
   },
   server: {
     port: 3000,
@@ -21,8 +19,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-     "@": path.resolve(__dirname, "./src/client"), 
+      "@": path.resolve(__dirname, "src"),
     },
   },
 });
-
