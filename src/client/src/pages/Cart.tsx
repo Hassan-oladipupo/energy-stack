@@ -67,7 +67,7 @@ const Cart: React.FC = () => {
           <p className="text-gray-600 mb-6">Looks like you haven't added any items to your cart yet.</p>
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-accent-700 transition-colors"
           >
             Continue Shopping
             <ArrowRight className="h-4 w-4" />
@@ -99,10 +99,10 @@ const Cart: React.FC = () => {
                     <p className="text-lg font-bold text-gray-900 mt-2">{formatPrice(item.product.price)}</p>
                   </div>
 
-                  <div className="flex flex-col items-end gap-3">
+                  <div className="flex flex-col items-end gap-3 ">
                     <button
                       onClick={() => handleRemoveItem(item.id)}
-                      className="text-red-500 hover:text-red-700 transition-colors"
+                      className="text-red-500 hover:text-red-700 transition-colors cursor-pointer"
                       aria-label="Remove item"
                     >
                       <Trash2 className="h-5 w-5" />
@@ -112,7 +112,7 @@ const Cart: React.FC = () => {
                       <button
                         onClick={() => handleQuantityChange(item.id, Math.max(0, item.quantity - 1))}
                         disabled={loading}
-                        className="p-1 rounded-md border border-gray-300 hover:bg-gray-50 disabled:opacity-50"
+                        className="p-1 rounded-md border border-gray-300 hover:bg-gray-50 disabled:opacity-50 cursor-pointer"
                         aria-label="Decrease quantity"
                       >
                         <Minus className="h-4 w-4" />
@@ -123,7 +123,7 @@ const Cart: React.FC = () => {
                       <button
                         onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
                         disabled={loading || item.quantity >= item.product.stock}
-                        className="p-1 rounded-md border border-gray-300 hover:bg-gray-50 disabled:opacity-50"
+                        className="p-1 rounded-md border border-gray-300 hover:bg-gray-50 disabled:opacity-50 cursor-pointer"
                         aria-label="Increase quantity"
                       >
                         <Plus className="h-4 w-4" />
