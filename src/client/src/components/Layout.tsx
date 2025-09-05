@@ -18,14 +18,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen text-black">
       {/* Header */}
-      <header className=" text-black shadow-lg">
+      <header className="fixed top-0 left-0 w-full text-black shadow-lg z-50 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-              <Zap className="h-6 w-6 text-accent" />
-              <span>EnergyStack</span>
-            </Link>
+         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+  <img
+    src="https://energystack.staging.rivy.co/assets/png/energystack-logo-4cbeb065.png"
+    alt="EnergyStack Logo"
+    className="h-10 w-auto"
+  />
+</Link>
+
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
@@ -84,7 +88,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 w-full">{children}</main>
+      <main className="flex-1 w-full pt-16">{children}</main>
 
     <footer className="bg-gray-900 text-white py-8">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

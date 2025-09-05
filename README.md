@@ -251,7 +251,6 @@ npm run db:seed          # Seed database with sample data
    - Implement proper payment security measures
 
 3. **Enhanced Features**
-   - Product reviews and ratings system
    - Wishlist functionality
    - Order tracking and notifications
    - Inventory reservation during checkout
