@@ -239,14 +239,14 @@ npm run db:seed          # Seed database with sample data
 4. **Image Storage**: Uses placeholder images - needs proper image upload/storage
 5. **Inventory Management**: Basic stock tracking without reservation during checkout
 
-### Recommended Improvements
+### Areas where we Could Still Improve
 1. **Authentication & Authorization**
    - Implement JWT-based authentication
    - Add user registration and login
    - Role-based access control for admin functions
 
 2. **Payment Integration**
-   - Integrate with Stripe, PayPal, or similar payment processor
+   - Integrate with Paystack, Flutter-wave or similar payment processor
    - Add support for multiple payment methods
    - Implement proper payment security measures
 
@@ -263,11 +263,6 @@ npm run db:seed          # Seed database with sample data
    - Frontend code splitting and lazy loading
    - API response caching with Redis
 
-5. **Monitoring & Analytics**
-   - Error tracking (Sentry)
-   - Performance monitoring (New Relic)
-   - User analytics (Google Analytics)
-   - Business metrics dashboard
 
 
 
