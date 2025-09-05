@@ -4,6 +4,7 @@ import type React from "react"
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import type { Cart } from "../types"
 import { cartApi } from "../services/api"
+import toast from "react-hot-toast"
 
 interface CartContextType {
   cart: Cart | null
@@ -55,6 +56,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       setError(null)
     } catch (err: any) {
       setError(err.response?.data?.error || "Failed to load cart")
+       toast.error("Failed to load cart")
     } finally {
       setLoading(false)
     }
@@ -66,8 +68,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       const response = await cartApi.addToCart(sessionId, productId, quantity)
       setCart(response.data)
       setError(null)
+       toast.success("Item added to cart!")
     } catch (err: any) {
-      setError(err.response?.data?.error || "Failed to add item to cart")
+     const message = err.response?.data?.error || "Failed to add item to cart"
+      setError(message)
+      toast.error(`${message}`)
       throw err
     } finally {
       setLoading(false)
@@ -80,6 +85,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       const response = await cartApi.updateCartItem(sessionId, itemId, quantity)
       setCart(response.data)
       setError(null)
+      toast.success("Cart updated successfully!")
     } catch (err: any) {
       setError(err.response?.data?.error || "Failed to update cart item")
       throw err
@@ -94,8 +100,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       const response = await cartApi.removeFromCart(sessionId, itemId)
       setCart(response.data)
       setError(null)
+       toast.success("Item removed from cart!")
     } catch (err: any) {
-      setError(err.response?.data?.error || "Failed to remove item from cart")
+     const message = err.response?.data?.error || "Failed to remove item from cart"
+      setError(message)
+      toast.error(`⚠️ ${message}`)
       throw err
     } finally {
       setLoading(false)

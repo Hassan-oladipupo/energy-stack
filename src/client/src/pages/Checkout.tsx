@@ -8,6 +8,8 @@ import { useCart } from "../contexts/CartContext"
 import { orderApi } from "../services/api"
 import LoadingSpinner from "../components/LoadingSpinner"
 import ErrorMessage from "../components/ErrorMessage"
+import toast from "react-hot-toast"
+
 
 const Checkout: React.FC = () => {
   const { cart, refreshCart } = useCart()
@@ -54,7 +56,7 @@ const Checkout: React.FC = () => {
     e.preventDefault()
 
     if (!cart?.sessionId) {
-      setError("No cart found")
+      toast.error("No cart found")
       return
     }
 
@@ -62,6 +64,7 @@ const Checkout: React.FC = () => {
       setLoading(true)
       setError(null)
 
+      const loadingToast = toast.loading("Processing your order...")
       // Simulate payment processing delay
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
@@ -70,6 +73,7 @@ const Checkout: React.FC = () => {
 
       // Refresh cart (should be empty now)
       await refreshCart()
+       toast.success("Order placed successfully!", { id: loadingToast })
 
       // Redirect to confirmation page
       navigate(`/order-confirmation/${response.data.id}`)

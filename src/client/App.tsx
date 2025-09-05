@@ -7,6 +7,7 @@ import Cart from "../client/src/pages/Cart"
 import Checkout from "../client/src/pages/Checkout"
 import OrderConfirmation from "../client/src/pages/OrderConfirmation"
 import NotFound from "../client/src/pages/NotFound"
+import { Toaster } from "react-hot-toast"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Toaster position="top-right" reverseOrder={false} />
       </Layout>
     </CartProvider>
   )
