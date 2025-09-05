@@ -19,8 +19,8 @@
     "db:migrate": "npx sequelize-cli db:migrate --config src/server/config/database.js --migrations-path src/server/migrations --models-path src/server/models --seeders-path src/server/seeders",
     "db:seed": "npx sequelize-cli db:seed:all --config src/server/config/database.js --seeders-path src/server/seeders --models-path src/server/models",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npm run db:migrate && npm run db:seed",
-    "docker:build": "docker build -t energystack-storefront .",
-    "docker:run": "docker run -p 3001:3001 --env-file .env energystack-storefront"
+    "dev:client": "vite",
+   "start:client": "vite preview"
   },
   "keywords": [
     "solar",
