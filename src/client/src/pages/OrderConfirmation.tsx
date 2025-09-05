@@ -159,14 +159,14 @@ const OrderConfirmation: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           to="/products"
-          className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-accent-700 transition-colors cursor-pointer"
         >
           Continue Shopping
           <ArrowRight className="h-4 w-4" />
         </Link>
         <button
           onClick={() => window.print()}
-          className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
         >
           Print Order
         </button>
