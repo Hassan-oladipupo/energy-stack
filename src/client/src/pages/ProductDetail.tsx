@@ -200,7 +200,7 @@ const ProductDetail: React.FC = () => {
           <div className="border-t pt-6 space-y-4">
             <div className="flex items-center gap-3 text-gray-600">
               <Truck className="h-5 w-5" />
-              <span>Free shipping on orders over $500</span>
+              <span>Free shipping on orders over ₦500,000</span>
             </div>
             <div className="flex items-center gap-3 text-gray-600">
               <Shield className="h-5 w-5" />
