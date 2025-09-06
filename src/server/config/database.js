@@ -9,6 +9,7 @@ module.exports = {
         require: true,
         rejectUnauthorized: false,
       },
+      
     },
   },
   test: {
