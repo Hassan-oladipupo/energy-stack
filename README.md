@@ -48,13 +48,9 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
    # Edit .env with your configuration
    \`\`\`
 
-3. **Build  App**
-   \`\`\`bash
-    npm run build
-   \`\`\`
 
-4. **Access the application**
-   - Frontend: http://localhost:3000
+3. **Access the application**
+   - Frontend: http://localhost:5173
    - Backend API: http://localhost:3001
    - API Documentation: http://localhost:3001/api/docs
 
@@ -65,7 +61,12 @@ A modern, full-stack e-commerce platform for solar equipment with integrated fin
    npm install
    \`\`\`
 
-2. **Database Setup**
+ 2. **Build  App**
+   \`\`\`bash
+    npm run build
+   \`\`\`  
+
+3. **Database Setup**
 Set up your Postgres database (locally or using a hosted provider like Supabase, Neon, or Render).
 Once created, copy the connection string and add it to your environment variables file (.env) as:
 DATABASE_URL=postgresql://username:password@host:port/database
@@ -76,7 +77,7 @@ Make sure to replace username, password, host, port, and database with your actu
    npm run db:seed
    \`\`\`
 
-3. **Start development servers**
+4. **Start development servers**
    \`\`\`bash
    # Start both frontend and backend
    npm run dev
@@ -84,6 +85,19 @@ Make sure to replace username, password, host, port, and database with your actu
    # Or start individually
    npm run server:dev  # Backend only
    npm run client:dev  # Frontend only
+   \`\`\`
+
+   5. **Build and run with Docker Compose**
+   \`\`\`bash
+   #  Build images and start containers
+       docker-compose up --build
+  
+  # Stop containers without removing them
+      docker-compose stop
+
+  # Stop and remove containers, networks, and volumes
+      docker-compose down -v
+
    \`\`\`
 
 ##  Database Schema
@@ -196,6 +210,8 @@ The project is configured for Vercel deployment:
 2. Set environment variables in Vercel dashboard
 3. Deploy automatically on push to main branch
 
+
+
 ##  Project Structure
 
 \`\`\`
@@ -208,7 +224,7 @@ src/
 │   │   ├── services/       # API client services
 │   │   ├── types/          # TypeScript type definitions
 │   └── index.html
-      └── maintsx
+      └── main.tsx
 ├── server/                 # Node.js backend
 │   ├── models/             # Sequelize database models
 │   ├── routes/             # Express route handlers
