@@ -20,10 +20,12 @@ const PORT = process.env.PORT || 3001
 app.use(helmet())
 app.use(
   cors({
-    origin: process.env.CORS_ORIGINS?.split(",") || ["http://localhost:5173"] || ["http://localhost:3000"] || ["https://440store.vercel.app"],
+    origin: process.env.CORS_ORIGINS
+      ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
+      : ['http://localhost:5173'],
     credentials: true,
   }),
-)
+);
 
 // cron job
 const BASE_URL = process.env.APP_BASE_URL || "https://energy-stack-api.onrender.com";
